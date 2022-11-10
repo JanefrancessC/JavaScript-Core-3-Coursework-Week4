@@ -29,7 +29,7 @@ Think about **edge cases** while writing tests.
 
 The final exercises involve using TDD to implement functions. You can run only the tests in the _C-TDD_ folder by running `npm test C-TDD` or you can run them with a watch with `npm test C-TDD --watch`.
 
-## Solutions
+## Solutions 
 
 The solutions for this coursework can be found here:
 

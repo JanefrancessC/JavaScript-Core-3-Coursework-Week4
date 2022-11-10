@@ -1,4 +1,4 @@
-let sales = require("./car-sales");
+let sales = require("./car-sales"); 
 
 test("Car sales", function () {
   let carsSold = [
