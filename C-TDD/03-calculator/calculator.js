@@ -1,24 +1,36 @@
+// function add(numbers) {
+//   let newArr = numbers.split(",").map((num) => Number(num));
+//   let total = 0;
+//   try {
+//     newArr.forEach((num) => {
+//       if (num < 0) throw new Error(`negatives not allowed: ${num}`);
+//     });
+//   } catch (error) {
+//     console.log(error);
+//   }
+//   newArr.filter((num) => {
+//     if (num <= 1000 && num > 0) {
+//       total += num;
+//     }
+//   });
+//   return total;
+// }
+
 function add(numbers) {
-  let total = 0;
-  let negativeNums = [];
   let newArr = numbers.split(",").map((num) => Number(num));
-  newArr.filter((num) => {
+  let total = 0;
+  let negativeNumbers = [];
+  newArr.forEach((num) => {
     if (num < 0) {
-      negativeNums.push(num);
-      // console.log(negativeNums);
-      throw new Error(`negatives not allowed: ${num}`);
-      //return `negatives not allowed: ${num}`;
+      negativeNumbers.push(num);
     } else if (num <= 1000 && num > 0) {
       total += num;
     }
   });
-
-  // let negativeNums = newArr.forEach((num) => {
-  //   if (num < 0) throw new Error(`negatives not allowed: ${num}`);
-  // });
-
+  if (negativeNumbers.length) {
+    throw new Error(`negatives not allowed: ${negativeNumbers.join(", ")}`);
+  }
   return total;
 }
-
-console.log(add("1,4,-1"));
+// console.log(add("0,1,9,-7,90,"));
 module.exports = add;

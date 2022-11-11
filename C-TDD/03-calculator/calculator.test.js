@@ -29,9 +29,19 @@ test("to add numbers passed in as string", function () {
   expect(output5).toEqual(expected5);
 });
 
+// test("invalidate negative number", () => {
+//   let input4 = "1,4,-1";
+//   // let expected4 = "negatives not allowed: -1";
+//   let output4 = add(input4);
+//   expect(output4).toThrowError();
+// });
+
 test("invalidate negative number", () => {
-  let input4 = "1,4,-1";
-  // let expected4 = "negatives not allowed: -1";
-  let output4 = add(input4);
-  expect(output4).toEqual("negatives not allowed: -1");
+  let input4 = "1, 4, -1";
+  let arr = input4.split(",").map((num) => Number(num));
+  let negativeNumbers = arr.filter((n) => n < 0);
+  let expected4 = `negatives not allowed: ${negativeNumbers.join(", ")}`;
+  expect(() => {
+    add(input4);
+  }).toThrow(expected4);
 });
