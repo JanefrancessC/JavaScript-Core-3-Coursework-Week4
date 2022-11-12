@@ -8,3 +8,4 @@ test("Average", function () {
 
   expect(output).toEqual(expected);
 });
+ 
